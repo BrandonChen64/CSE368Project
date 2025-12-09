@@ -53,5 +53,6 @@ features = X.columns
 feat_importances = pd.Series(importances, index=features).sort_values(ascending=False)
 print(feat_importances)
 
-feat_importances.plot(kind="bar")
-plt.show()
+# Comment out plotting so it doesn't block when imported by Flask
+# feat_importances.plot(kind="bar")
+# plt.show()

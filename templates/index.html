@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Placement Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        strong {
+            color: #222;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background: #fafafa;
+        }
+
+        button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #357ABD;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .results-table {
+            margin-top: 25px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background: #4a90e2;
+            color: white;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        tr:hover {
+            background: #f1f5ff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Student Placement Predictor</h1>
+
+        <p>
+            Upload a CSV file with these columns:<br>
+            <strong>
+                {% for c in feature_cols %}
+                {{ c }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </strong>
+        </p>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv" required>
+            <br>
+            <button type="submit">Predict Placement</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if table_html %}
+        <div class="results-table">
+            <h2>Prediction Results</h2>
+            {{ table_html|safe }}
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
