@@ -9,8 +9,8 @@ from sklearn.metrics import accuracy_score
 # Used LLM for syntax and use of sklearn libraries
 
 # Load data sets
-df = pd.read_csv("original.csv")
-# df = pd.read_csv("cleaned.csv")
+# df = pd.read_csv("original.csv")
+df = pd.read_csv("cleaned.csv")
 
 # Choose features if eda bad
 # features = [
