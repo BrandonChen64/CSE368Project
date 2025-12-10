@@ -13,6 +13,7 @@
             padding: 0;
         }
 
+        /* Upload + Instructions Container */
         .container {
             max-width: 700px;
             margin: 40px auto;
@@ -74,15 +75,29 @@
             font-weight: bold;
         }
 
+        /* FULL-WIDTH Results Section (new) */
+        .results-section {
+            width: 95%;
+            margin: 30px auto;
+        }
+
+        .results-section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
         .results-table {
-            margin-top: 25px;
             overflow-x: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
             background: white;
             border-radius: 8px;
             overflow: hidden;
@@ -112,6 +127,7 @@
 
 <body>
 
+    <!-- Upload Card -->
     <div class="container">
         <h1>Student Placement Predictor</h1>
 
@@ -133,14 +149,17 @@
         {% if error %}
         <p class="error">{{ error }}</p>
         {% endif %}
+    </div>
 
-        {% if table_html %}
+    <!-- FULL WIDTH RESULTS BELOW -->
+    {% if table_html %}
+    <div class="results-section">
+        <h2>Prediction Results</h2>
         <div class="results-table">
-            <h2>Prediction Results</h2>
             {{ table_html|safe }}
         </div>
-        {% endif %}
     </div>
+    {% endif %}
 
 </body>
 
