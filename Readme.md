@@ -135,5 +135,7 @@ There are several directions to improve and extend this project in the future:
 - Show feature importance for the Random Forest model.
 - Add a comparison view to show how a particular student’s features differ from the overall average.
 
-
-
+### 3. Better Result Classification
+- Since logistic regresssion was not far behind in accuracy, we plan to have the results in a range of 0-1.
+- Results will be either a ranking or reclassified to low,medium,high,extreme risk.
+- This will give more information and guidance to the school.
