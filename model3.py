@@ -9,8 +9,8 @@ from sklearn.neural_network import MLPClassifier
 # Used LLM for syntax and use of sklearn libraries
 
 # Load data sets
-df = pd.read_csv("original.csv")
-# df = pd.read_csv("cleaned.csv")
+# df = pd.read_csv("original.csv")
+df = pd.read_csv("cleaned.csv")
 
 # Choose features if eda bad
 # features = [
