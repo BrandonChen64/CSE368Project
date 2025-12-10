@@ -21,7 +21,26 @@ The goal was to compare their accuracy, stability, and real-world performance.
 * Model2.py — Logistic Regression: A simple, interpretable baseline model used for comparison.
 * Model3.py — Artificial Neural Network (ANN): A multi-layer perceptron model capable of learning nonlinear patterns.
 
-Only Model 1 (Random Forest) is used by the web interface because it shows the best accuracy and stability.
+| Model                         | Accuracy |
+|------------------------------|----------|
+| Random Forest Classifier     | **0.9082** |
+| Logistic Regression          | 0.8826 |
+| Artificial Neural Network    | 0.8882 |
+
+Since the Random Forest is best accuracy, the model 1 (Random Forest) will be depoly in web interface.
+
+These values show how important each feature is in the Random Forest classifier (higher = more influence):
+
+| Feature                 | Importance |
+|-------------------------|-----------:|
+| Prev_Sem_Result         | **0.367701** |
+| Communication_Skills    | **0.269567** |
+| Projects_Completed      | 0.152539 |
+| Extra_Curricular_Score  | 0.093486 |
+| Academic_Performance    | 0.091797 |
+| Internship_Experience   | 0.024910 |
+
+From this ranking we can see that **Prev_Sem_Result** and **Communication_Skills** are the most influential factors for predicting placement.
 
 ## EDA & Data Cleaning (eda.ipynb)
 The notebook performs:
